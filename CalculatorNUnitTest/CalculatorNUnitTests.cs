@@ -63,15 +63,5 @@ namespace Math
             var result = await calculator.AsyncMath();
             Assert.That(result, Is.EqualTo(4));
         }
-        //[Test]
-        //[TestCase(5,10, ExpectedResult = true)]
-        //[TestCase(10,20, ExpectedResult = true)]
-        //public bool RangeOddNumbers_GetCorrectAnswer_Better(int min, int max)
-        //{
-        //    var range = Enumerable.Range(min, max - min + 1);
-        //    var response = calculator.GetRangeOfOddNumbers(min, max).ToList();
-        //    ClassicAssert.AreEqual
-        //    return ClassicAssert.AreEqual(range, response);
-        //}
     }
 }
