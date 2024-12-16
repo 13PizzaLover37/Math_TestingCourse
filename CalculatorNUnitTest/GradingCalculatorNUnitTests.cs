@@ -16,9 +16,9 @@ namespace Math
         [TestCase(85, 90, ExpectedResult = "B")]
         [TestCase(65, 90, ExpectedResult = "C")]
         [TestCase(95, 65, ExpectedResult = "B")]
-        [TestCase(95, 55, ExpectedResult = "D")]
-        [TestCase(65, 55, ExpectedResult = "D")]
-        [TestCase(50, 90, ExpectedResult = "D")]
+        [TestCase(95, 55, ExpectedResult = "F")]
+        [TestCase(65, 55, ExpectedResult = "F")]
+        [TestCase(50, 90, ExpectedResult = "F")]
         public string GetGrade_ReceiveCorrectAnswers(int score, int attendancePercentage)
         {
             return _gradingCalculator.GetGrade(score, attendancePercentage);

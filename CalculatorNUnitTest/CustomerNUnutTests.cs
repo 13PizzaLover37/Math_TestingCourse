@@ -39,8 +39,8 @@ namespace Math
 
                 Assert.That(response, Does.Contain("John Smith"));
                 Assert.That(response, Does.Contain("john smith").IgnoreCase);
-                Assert.That(response, Does.StartWith("1john ").IgnoreCase);
-                Assert.That(response, Does.EndWith("1Smith"));
+                Assert.That(response, Does.StartWith("john ").IgnoreCase);
+                Assert.That(response, Does.EndWith("Smith"));
                 Assert.That(response, Does.Match("[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+"));
             });
         }

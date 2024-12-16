@@ -10,7 +10,7 @@ namespace CalculatorMSTest
         public void SumNumbers_InputTwoNumbers_GetCorrectAddition()
         {
             // Arrange
-            Calculator calculator = new Calculator();
+            var calculator = new Math.Calculator();
             int firstInt = 0;
             int secondInt = 0;
             // Act
