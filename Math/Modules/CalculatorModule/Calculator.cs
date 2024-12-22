@@ -1,4 +1,4 @@
-﻿namespace Math
+﻿namespace ModulesForTesting.Modules.Calculator
 {
     public class Calculator
     {

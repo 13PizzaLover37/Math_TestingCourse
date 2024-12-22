@@ -1,4 +1,5 @@
 ﻿using Math;
+using ModulesForTesting.Modules.CustomerModule;
 using NUnit.Framework;
 
 namespace Math

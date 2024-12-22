@@ -1,4 +1,4 @@
-﻿using Calculator;
+﻿using ModulesForTesting.Modules.GradingCalculatorModule;
 using NUnit.Framework;
 
 namespace Math

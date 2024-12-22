@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using ModulesForTesting.Modules.Calculator;
+using NUnit.Framework;
 using NUnit.Framework.Legacy;
 
 namespace Math

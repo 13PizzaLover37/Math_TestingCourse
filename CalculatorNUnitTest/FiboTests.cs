@@ -1,4 +1,4 @@
-﻿using Calculator;
+﻿using ModulesForTesting.Modules.FiboModule;
 using NUnit.Framework;
 
 namespace Math

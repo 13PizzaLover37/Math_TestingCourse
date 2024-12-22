@@ -1,4 +1,4 @@
-﻿namespace Calculator
+﻿namespace ModulesForTesting.Modules.FiboModule
 {
     // this is not my code. This is a part of my course of unit testing
     public class Fibo

@@ -1,4 +1,4 @@
-﻿namespace Calculator
+﻿namespace ModulesForTesting.Modules.GradingCalculatorModule
 {
     public class GradingCalculator
     {

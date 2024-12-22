@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Math\Calculator.csproj" />
+    <ProjectReference Include="..\Math\ModulesForTesting.csproj" />
   </ItemGroup>
 
 </Project>

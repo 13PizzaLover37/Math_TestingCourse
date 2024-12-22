@@ -1,4 +1,5 @@
-using Math;
+
+using ModulesForTesting.Modules.Calculator;
 
 namespace CalculatorMSTest
 {
@@ -10,7 +11,7 @@ namespace CalculatorMSTest
         public void SumNumbers_InputTwoNumbers_GetCorrectAddition()
         {
             // Arrange
-            var calculator = new Math.Calculator();
+            var calculator = new Calculator();
             int firstInt = 0;
             int secondInt = 0;
             // Act
