@@ -1,4 +1,5 @@
-﻿using ModulesForTesting.Modules.CustomerModule;
+﻿using ModulesForTesting.Interfaces;
+using ModulesForTesting.Modules.CustomerModule;
 
 namespace ModulesForTesting.Modules.ProductModule
 {
@@ -9,6 +10,14 @@ namespace ModulesForTesting.Modules.ProductModule
         public int Price { get; set; }
 
         public double GetPrice(Customer customer)
+        {
+            if (customer.IsPlatinum) return Price * 0.8;
+
+            return Price;
+        }
+
+        // method for abusing Mocking
+        public double GetPrice(ICustomer customer)
         {
             if (customer.IsPlatinum) return Price * 0.8;
 

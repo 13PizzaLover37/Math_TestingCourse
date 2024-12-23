@@ -1,6 +1,8 @@
-﻿namespace ModulesForTesting.Modules.CustomerModule
+﻿using ModulesForTesting.Interfaces;
+
+namespace ModulesForTesting.Modules.CustomerModule
 {
-    public class Customer
+    public class Customer :ICustomer
     {
         public int Discount { get; set; } = 15;
         public bool IsPlatinum { get; set; }
