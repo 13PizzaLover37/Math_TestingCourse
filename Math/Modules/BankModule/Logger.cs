@@ -31,5 +31,11 @@ namespace ModulesForTesting.Modules.BankModule
         {
             Console.WriteLine(message);
         }
+
+        public string MessageWithReturnsStr(string message)
+        {
+            Console.WriteLine(message);
+            return message;
+        }
     }
 }

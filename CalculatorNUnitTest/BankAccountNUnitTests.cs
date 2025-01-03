@@ -65,5 +65,16 @@ namespace Math
             var result = _bankAccount.Withdraw(withdraw);
             Assert.That(result, Is.True);
         }
+
+        [Test]
+        public void BankLog_LogMockString_ReturnTrue()
+        {
+            var loggerMock = new Mock<ILogger>();
+            var desiredOutput = "Hello";
+
+            loggerMock.Setup(el => el.MessageWithReturnsStr(It.IsAny<string>())).Returns((string str) => str);
+
+            Assert.That(loggerMock.Object.MessageWithReturnsStr(desiredOutput), Is.EqualTo(desiredOutput));
+        }
     }
 }
