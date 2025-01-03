@@ -17,10 +17,11 @@ namespace ModulesForTesting.Modules.BankModule
 
         public bool Withdraw(int amount)
         {
-            if (amount > Balance) return false;
-
+            if (amount > Balance) _logger.LogBalanceAfterWithdraw(Balance - amount);
+            
+            _logger.LogToDb("Withdraw amount: " + amount.ToString());
             Balance -= amount;
-            return true;
+            return _logger.LogBalanceAfterWithdraw(Balance);
         }
 
         public int GetBalance() => Balance;
