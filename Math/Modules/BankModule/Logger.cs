@@ -32,6 +32,12 @@ namespace ModulesForTesting.Modules.BankModule
             Console.WriteLine(message);
         }
 
+        public bool MessageWithOutString(string message, out string response)
+        {
+            response = "Hello " + message;
+            return true;
+        }
+
         public string MessageWithReturnsStr(string message)
         {
             Console.WriteLine(message);

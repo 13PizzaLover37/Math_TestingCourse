@@ -76,5 +76,20 @@ namespace Math
 
             Assert.That(loggerMock.Object.MessageWithReturnsStr(desiredOutput), Is.EqualTo(desiredOutput));
         }
+
+        [Test]
+        public void BankLog_LogMockStringOutputStr_ReturnTrue()
+        {
+            var loggerMock = new Mock<ILogger>();
+
+            // by writing text here and setting the variable as an out, we tell the setup, what text in out should be
+            var desiredOutput = "Hello";
+
+            loggerMock.Setup(el => el.MessageWithOutString(It.IsAny<string>(), out desiredOutput)).Returns(true);
+
+            string result = "";
+            Assert.That(loggerMock.Object.MessageWithOutString("Steve", out result), Is.True);
+            Assert.That(result, Is.EqualTo(desiredOutput));
+        }
     }
 }

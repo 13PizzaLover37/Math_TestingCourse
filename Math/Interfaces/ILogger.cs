@@ -6,5 +6,7 @@
         bool LogToDb(string message);
         bool LogBalanceAfterWithdraw(int balanceAfterWithdraw);
         string MessageWithReturnsStr(string message);
+
+        bool MessageWithOutString(string message, out string response);
     }
 }
