@@ -1,5 +1,6 @@
 ﻿using ModulesForTesting.Interfaces;
 using ModulesForTesting.Modules.BankModule;
+using ModulesForTesting.Modules.CustomerModule;
 using Moq;
 using NUnit.Framework;
 
@@ -90,6 +91,19 @@ namespace Math
             string result = "";
             Assert.That(loggerMock.Object.MessageWithOutString("Steve", out result), Is.True);
             Assert.That(result, Is.EqualTo(desiredOutput));
+        }
+
+        [Test]
+        public void BankLog_LogMockRefCheck_ReturnTrue()
+        {
+            var loggerMock = new Mock<ILogger>();
+            Customer customer = new();
+
+            // ! Important !
+            // if we send !customer object to Assert, the Assert will return false
+            loggerMock.Setup(el => el.MessageWithRefObj(ref customer)).Returns(true);
+
+            Assert.That(loggerMock.Object.MessageWithRefObj(ref customer), Is.True);
         }
     }
 }

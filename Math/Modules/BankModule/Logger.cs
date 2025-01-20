@@ -1,4 +1,5 @@
 ﻿using ModulesForTesting.Interfaces;
+using ModulesForTesting.Modules.CustomerModule;
 
 namespace ModulesForTesting.Modules.BankModule
 {
@@ -37,6 +38,8 @@ namespace ModulesForTesting.Modules.BankModule
             response = "Hello " + message;
             return true;
         }
+
+        public bool MessageWithRefObj(ref Customer customer) => true;
 
         public string MessageWithReturnsStr(string message)
         {
