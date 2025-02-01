@@ -140,5 +140,41 @@ namespace Math
             // mock.LogType = "warning" -> we will fall
             // for this type of setting, we have to use mock.SetupAllPrroperties(); in the beginning of a test method
         }
+
+        [Test]
+        public void BankLog_Callbacks_MockTest()
+        {
+            var mock = new Mock<ILogger>();
+
+            // callbacks
+            var greeting = "Hello, ";
+
+            mock.Setup(el => el.LogToDb(It.IsAny<string>()))
+                .Returns(true)
+                .Callback((string input) => greeting += input);
+
+            mock.Object.LogToDb("John");
+
+            Assert.That(greeting, Is.EqualTo("Hello, John"));
+
+            // counter callback
+            var counter = 0;
+
+            mock.Setup(el => el.LogToDb(It.IsAny<string>()))
+                .Returns(true)
+                .Callback(() => counter++);
+
+            mock.Object.LogToDb("John");
+            mock.Object.LogToDb("Dave");
+            mock.Object.LogToDb("Steve");
+
+            Assert.That(counter, Is.EqualTo(3));
+
+            // Warning
+            // we can write callback even before .returns
+            mock.Setup(el => el.LogToDb(It.IsAny<string>()))
+               .Callback(() => counter++)
+               .Returns(true);
+        }
     }
 }
