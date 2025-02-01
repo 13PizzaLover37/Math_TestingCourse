@@ -176,5 +176,26 @@ namespace Math
                .Callback(() => counter++)
                .Returns(true);
         }
+
+        [Test]
+        public void BankLog_VerifyUsingMethods()
+        {
+            var mock = new Mock<ILogger>();
+            BankAccount bankAccount = new BankAccount(mock.Object);
+
+            bankAccount.Deposit(100);
+            Assert.That(bankAccount.GetBalance(), Is.EqualTo(100));
+
+            // verification
+            mock.Verify(el => el.Message(It.IsAny<string>()), Times.Exactly(2));
+
+            // if we want to check if the method got the specific parametr at least once
+            mock.Verify(el => el.Message("Deposit invoked"), Times.AtLeastOnce);
+
+            // as we work with properties, we can use .VerifySet/.VerifyGet
+            // to check how many times the program set/get a special value
+            mock.VerifySet(el => el.ServerCode = 200, Times.Once);
+            mock.VerifyGet(el => el.ServerCode, Times.Once);
+        }
     }
 }

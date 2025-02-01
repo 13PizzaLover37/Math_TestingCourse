@@ -11,6 +11,10 @@ namespace ModulesForTesting.Modules.BankModule
         public bool Deposit(int amount)
         {
             _logger.Message("Deposit invoked");
+            _logger.Message($"Deposit {amount}");
+            _logger.ServerCode = 200;
+            var temp = _logger.ServerCode;
+
             Balance += amount;
             return true;
         }
