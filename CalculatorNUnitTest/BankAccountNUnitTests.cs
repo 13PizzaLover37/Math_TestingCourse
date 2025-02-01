@@ -105,5 +105,40 @@ namespace Math
 
             Assert.That(loggerMock.Object.MessageWithRefObj(ref customer), Is.True);
         }
+
+        [Test]
+        public void BankLog_SetAndGetServerCodeAndServerType_MockTest()
+        {
+            var mock = new Mock<ILogger>();
+
+            mock.Setup(el => el.ServerCode).Returns(404);
+            mock.Setup(el => el.LogType).Returns("Warning");
+            
+            Assert.That(mock.Object.ServerCode, Is.EqualTo(404));
+            Assert.That(mock.Object.LogType, Is.EqualTo("Warning"));
+
+            // Warning!
+            // If we want to set up a mock parameter like
+            // mock.LogType = "warning" -> we will fall
+            // for this type of setting, we have to use mock.SetupAllPrroperties(); in the beginning of a test method
+        }
+
+        [Test]
+        public void BankLog_SetAndGetServerCodeAndServerType_WithSetupAllProperties_MockTest()
+        {
+            var mock = new Mock<ILogger>();
+            mock.SetupAllProperties();
+
+            mock.Object.ServerCode = 404;
+            mock.Object.LogType = "Warning";
+
+            Assert.That(mock.Object.ServerCode, Is.EqualTo(404));
+            Assert.That(mock.Object.LogType, Is.EqualTo("Warning"));
+
+            // Warning!
+            // If we want to set up a mock parameter like
+            // mock.LogType = "warning" -> we will fall
+            // for this type of setting, we have to use mock.SetupAllPrroperties(); in the beginning of a test method
+        }
     }
 }

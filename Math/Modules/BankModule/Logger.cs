@@ -5,6 +5,9 @@ namespace ModulesForTesting.Modules.BankModule
 {
     public class Logger : ILogger
     {
+        public int ServerCode { get; set; }
+        public string LogType { get; set; } = string.Empty;
+
         public bool LogBalanceAfterWithdraw(int balanceAfterWithdraw)
         {
             throw new NotImplementedException();

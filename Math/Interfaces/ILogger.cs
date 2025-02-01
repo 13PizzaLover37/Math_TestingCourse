@@ -4,6 +4,9 @@ namespace ModulesForTesting.Interfaces
 {
     public interface ILogger
     {
+        public int ServerCode { get; set; }
+        public string LogType { get; set; }
+
         void Message(string message);
         bool LogToDb(string message);
         bool LogBalanceAfterWithdraw(int balanceAfterWithdraw);
